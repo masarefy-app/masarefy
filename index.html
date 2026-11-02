@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مصاريفي</title>
+<meta name="description" content="سجّل مصاريفك اليومية بالكتابة أو بالصوت، واعرف صرفت قد إيه وفين آخر الشهر.">
+<meta name="theme-color" id="themeColor" content="#EEF0F3">
+<meta name="color-scheme" content="light dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="مصاريفي">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300..700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  // الشكل قبل ما الصفحة ترسم، عشان مفيش وميض
+  (function () {
+    try {
+      var d = JSON.parse(localStorage.getItem('masarefy.v1') || 'null');
+      var t = d && d.settings && d.settings.theme;
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <button class="icon-btn back" id="backBtn" hidden aria-label="رجوع"></button>
+    <h1 id="title">مصاريفي</h1>
+    <button class="icon-btn" id="settingsBtn" data-go="settings" aria-label="الإعدادات"></button>
+  </header>
+  <main id="view" tabindex="-1"></main>
+  <nav class="tabs" aria-label="الصفحات">
+    <button class="tab" data-go="today"><span data-icon="receipt"></span>النهارده</button>
+    <button class="tab" data-go="log"><span data-icon="list"></span>السجل</button>
+    <button class="tab" data-go="bills"><span data-icon="calendarClock"></span>الفواتير<span class="badge" id="billBadge" hidden></span></button>
+    <button class="tab" data-go="stats"><span data-icon="pie"></span>الشهر</button>
+    <button class="tab" data-go="cats"><span data-icon="layers"></span>البنود</button>
+  </nav>
+</div>
+<dialog id="sheet" class="sheet" aria-labelledby="sheetTitle"></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<noscript><p class="noscript">التطبيق محتاج JavaScript يكون شغال.</p></noscript>
+<script src="icons.js"></script>
+<script src="parser.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

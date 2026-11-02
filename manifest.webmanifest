@@ -1,0 +1,41 @@
+{
+  "name": "مصاريفي",
+  "short_name": "مصاريفي",
+  "description": "سجّل مصاريفك اليومية بالكتابة أو بالصوت، واعرف صرفت قد إيه وفين آخر الشهر.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./#today",
+  "scope": "./",
+  "id": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#EEF0F3",
+  "theme_color": "#4338CA",
+  "categories": ["finance", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "سجّل مصروف بالصوت",
+      "short_name": "سجّل مصروف",
+      "url": "./?mic=1#today",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "الفواتير الشهرية",
+      "short_name": "الفواتير",
+      "url": "./#bills",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "إحصائيات الشهر",
+      "short_name": "الشهر",
+      "url": "./#stats",
+      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
